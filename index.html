@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#3c3742",
+                        "on-secondary-fixed": "#290154",
+                        "on-error": "#690005",
+                        surface: "#16121b",
+                        "primary-container": "#7926d6",
+                        "surface-container-high": "#2d2832",
+                        "tertiary-fixed-dim": "#ffb77f",
+                        "on-tertiary-container": "#ffc79e",
+                        "on-surface": "#e9dfed",
+                        "on-secondary-fixed-variant": "#573682",
+                        "secondary-container": "#573682",
+                        "on-tertiary-fixed-variant": "#6f3800",
+                        "on-tertiary": "#4e2600",
+                        "primary-fixed-dim": "#d8b9ff",
+                        "on-secondary-container": "#caa5f9",
+                        tertiary: "#ffb77f",
+                        "tertiary-fixed": "#ffdcc4",
+                        "tertiary-container": "#8c4900",
+                        "surface-dim": "#16121b",
+                        primary: "#d8b9ff",
+                        "error-container": "#93000a",
+                        "inverse-primary": "#7d2cda",
+                        "on-primary": "#450086",
+                        "surface-container-highest": "#38333d",
+                        "secondary-fixed-dim": "#d8b9ff",
+                        "on-surface-variant": "#cec2d7",
+                        error: "#ffb4ab",
+                        outline: "#978da0",
+                        "primary-fixed": "#eddcff",
+                        "secondary-fixed": "#eddcff",
+                        "surface-container-low": "#1e1a23",
+                        "on-tertiary-fixed": "#2f1500",
+                        "on-background": "#e9dfed",
+                        "surface-variant": "#38333d",
+                        "surface-tint": "#d8b9ff",
+                        "outline-variant": "#4c4454",
+                        "surface-container": "#221e28",
+                        "on-primary-container": "#e1c8ff",
+                        "inverse-on-surface": "#332e39",
+                        "on-secondary": "#3f1d69",
+                        background: "#16121b",
+                        "surface-container-lowest": "#110c16",
+                        "on-primary-fixed-variant": "#6300bb",
+                        "on-primary-fixed": "#290055",
+                        "on-error-container": "#ffdad6",
+                        secondary: "#d8b9ff",
+                        "inverse-surface": "#e9dfed"
+                    },
+                    fontFamily: {
+                        headline: ["Inter"],
+                        body: ["Inter"],
+                        label: ["Inter"],
+                        display: "Inter"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .animated-bg {
+            background: linear-gradient(-45deg, #16121b, #290154, #1a103d, #4e004e, #16121b);
+            background-size: 400% 400%;
+            animation: gradient-shift 20s ease infinite;
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .btn-glow-primary:hover {
+            box-shadow: 0 0 20px 2px rgba(216, 185, 255, 0.4);
+        }
+        .btn-glow-secondary:hover {
+            box-shadow: 0 0 15px 1px rgba(216, 185, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="animated-bg font-body text-on-surface antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-surface/40 backdrop-blur-xl border-b border-white/5">
+<div class="flex items-center gap-4">
+<span class="text-xl font-headline font-bold text-primary tracking-tight">Sanctuary</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-6 mr-6">
+<button class="text-primary font-bold font-headline">Meetings</button>
+<button class="text-on-surface-variant font-headline hover:text-on-surface transition-colors px-3 py-1 rounded-lg">Recordings</button>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container overflow-hidden ml-2 ring-2 ring-primary/20">
+<img alt="User profile" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVEDpBnWtQnLDvjtFn1kPDxROxSiic64KKku6X2yyIMOxmlakRLcZGGuxoXV-BYT8S2df6yTCEO2ZScnPcLxuXa6kotvxLNLYZ9WojMFqNNtwOJksqf525SbeEVBiNDrQdsqo4NmBMMrCZpHvTo3GgbvRNY38agcp2wwziA7TdbQqvle-HCDs9MA0NHtE8PPeHYx5hL3w4OXF1szafV8MgmTjScm0shITTCIqOc9FkdOshbuAzcKjhT82eRkSfybEaoPbaViiH9Q"/>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Hero Content Left -->
+<div class="lg:col-span-7 flex flex-col justify-center space-y-10">
+<div class="space-y-6">
+<h1 class="font-headline text-5xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] drop-shadow-sm">
+                    Premium video meetings. <br/>
+<span class="text-primary">Now free for everyone.</span>
+</h1>
+<p class="text-on-surface-variant text-xl max-w-xl leading-relaxed font-medium">
+                    We re-engineered the service we built for secure business meetings to make it free and available for all.
+                </p>
+</div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+<!-- New Meeting Dropdown -->
+<div class="relative group">
+<button class="btn-glow-primary flex items-center gap-2 bg-primary text-on-primary px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="video_call">video_call</span>
+                        New Meeting
+                    </button>
+<!-- Hover Menu -->
+<div class="absolute top-full left-0 mt-2 w-64 bg-surface-container-highest rounded-xl shadow-2xl border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20 overflow-hidden backdrop-blur-xl">
+<div class="p-2">
+<button class="w-full text-left px-4 py-3 hover:bg-white/10 rounded-lg flex items-center gap-3 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="link">link</span>
+<span class="text-sm font-semibold">Create link for later</span>
+</button>
+<button class="w-full text-left px-4 py-3 hover:bg-white/10 rounded-lg flex items-center gap-3 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span>
+<span class="text-sm font-semibold">Start meeting now</span>
+</button>
+<button class="w-full text-left px-4 py-3 hover:bg-white/10 rounded-lg flex items-center gap-3 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm font-semibold">Schedule in Calendar</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-center w-full sm:w-auto bg-white/5 rounded-xl px-3 py-1 border border-white/10 focus-within:border-primary/50 focus-within:bg-white/10 transition-all backdrop-blur-md">
+<span class="material-symbols-outlined text-on-surface-variant px-2" data-icon="keyboard">keyboard</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface w-full sm:w-48 placeholder:text-on-surface-variant/60 font-medium" placeholder="Enter a code or link" type="text"/>
+<button class="btn-glow-secondary text-primary font-bold px-4 py-2 hover:bg-primary/10 rounded-lg transition-all whitespace-nowrap">Join</button>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex items-center gap-4 text-on-surface-variant">
+<p class="text-sm font-medium"><span class="font-bold text-primary cursor-pointer hover:underline">Learn more</span> about our security and privacy.</p>
+</div>
+</div>
+<!-- Schedule / Visual Section Right -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Bento Card: Visual (Glassmorphism) -->
+<div class="glass-panel rounded-[2.5rem] p-8 flex flex-col items-center text-center space-y-6 overflow-hidden relative group">
+<div class="w-full aspect-video rounded-2xl bg-surface-container-highest/50 overflow-hidden shadow-2xl relative ring-1 ring-white/10">
+<img alt="Video Call Illustration" class="w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6iy2ySHKWyFjxEDwe4utIMhJ-h-Dmq7T7d2TC142qXpjkBJ-pGFdF-hImtxwtB2qyuCpQA5D-oolccicRHuhfuJko2bMF-usTm3T1R-C_gd_jYnzmsIOemBkMN3JqpnGkAKzUG9YMpn9Y9h_tFv0aQqsuBSTtheXxDZ2BiFBnesdavcwFrIncd_1p5JI54aOpBxlp3V571FSCrfwfjra4fDvr2s8WmDgaQYFuCstHwWrnHIkiMlK7Gib4BpDvFthEKcPxgOB64Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white/20 bg-blue-100 overflow-hidden">
+<img alt="avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABUS_HIX7IUGqisipFSUz5GV0Num6xdhzwB3QHlM_typmLWe5w5UOxDR0b8I8zwr6bm4geuWADoR2TIzMLbLV_5JHCYZFb0OiJwvuYfozV3QNVnM_fIB2flTTWkHS-PgfSxGTfyLVlUrTiPlimphvX0iPRwKLTvETVrKQ4m--2rjeV7RoRsec6Y9somZB9rPqBig3iqJzUEQTqR92vanQn71z9BWg_8UQl5HDnWi605LxwyQc-ZcK7IPwPvX2FWcQG_Xp19xLSRA"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white/20 bg-green-100 overflow-hidden">
+<img alt="avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBAh5nmHSe2q1B-5GOXLYlru5ZgBd0Q8gLlp6n8Hpyo3s3edZ2pZHKRI-_CopfyGahU7dbrSCPaTvlc2Gr2JuXb9AVSscGU629qbhlEwgmy2xN8rOyOqm_LtSVwLxDZ6WJE_PzZJt1q_oo9IlDb3nT81U1M6u_AJymo4nlJwDh2CFzQfi8yPfxcq-trGsxeApv537OMS0tec1QrMeELhI3DzOjrBa_OD853_aZAhQX31P3QwSSfC5b4CM-uue4lzeUTkJag-iu6g"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white/20 bg-surface-container flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-white">Get a link that you can share</h3>
+<p class="text-on-surface-variant text-sm mt-2 max-w-xs mx-auto font-medium">Click New Meeting to get a link that you can send to people you want to meet with.</p>
+</div>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(216,185,255,0.8)]"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+</div>
+<!-- Bento Card: Schedule (Glassmorphism) -->
+<div class="glass-panel rounded-[2.5rem] p-8 space-y-6">
+<div class="flex justify-between items-center px-2">
+<h2 class="font-headline text-lg font-bold flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-primary" data-icon="event">event</span>
+                        Upcoming Today
+                    </h2>
+<span class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-on-surface-variant/80">3 Total</span>
+</div>
+<div class="space-y-4">
+<!-- Meeting Item 1 -->
+<div class="group bg-white/5 p-4 rounded-2xl flex items-center justify-between hover:bg-white/10 transition-all cursor-pointer border border-transparent hover:border-white/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary/20 flex flex-col items-center justify-center text-primary leading-none border border-primary/20">
+<span class="text-[10px] font-bold uppercase">Oct</span>
+<span class="text-xl font-extrabold tracking-tighter">14</span>
+</div>
+<div>
+<h4 class="font-bold text-sm text-white">Product Sync: Design System</h4>
+<p class="text-xs text-on-surface-variant font-medium">10:30 AM - 11:15 AM</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors translate-x-0 group-hover:translate-x-1" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Meeting Item 2 -->
+<div class="group bg-white/5 p-4 rounded-2xl flex items-center justify-between hover:bg-white/10 transition-all cursor-pointer border border-transparent hover:border-white/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary flex flex-col items-center justify-center text-on-primary leading-none">
+<span class="text-[10px] font-bold uppercase">Oct</span>
+<span class="text-xl font-extrabold tracking-tighter">14</span>
+</div>
+<div>
+<h4 class="font-bold text-sm text-white">Weekly Global All-Hands</h4>
+<p class="text-xs text-on-surface-variant font-medium">02:00 PM - 03:00 PM</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors translate-x-0 group-hover:translate-x-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<button class="w-full py-3.5 text-sm font-bold text-primary hover:bg-primary/10 rounded-xl transition-all border border-primary/20 hover:border-primary/40">
+                    View Full Schedule
+                </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-center items-center pb-6 px-4">
+<div class="bg-surface/60 backdrop-blur-2xl rounded-2xl w-full max-w-md p-2 shadow-2xl border border-white/10 flex items-center gap-1">
+<button class="flex-1 bg-primary text-on-primary rounded-xl py-3 flex flex-col items-center gap-1 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</button>
+<button class="flex-1 text-on-surface-variant py-3 hover:bg-white/5 rounded-xl flex flex-col items-center gap-1 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Schedule</span>
+</button>
+<button class="flex-1 text-on-surface-variant py-3 hover:bg-white/5 rounded-xl flex flex-col items-center gap-1 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">History</span>
+</button>
+</div>
+</nav>
+<!-- Contextual FAB -->
+<div class="fixed bottom-24 right-6 md:bottom-10 md:right-10 z-40">
+<button class="w-16 h-16 bg-tertiary text-on-tertiary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-all duration-300 group ring-4 ring-tertiary/10">
+<span class="material-symbols-outlined group-hover:rotate-12 transition-transform text-2xl" data-icon="chat_bubble">chat_bubble</span>
+</button>
+</div>
+</body></html>
